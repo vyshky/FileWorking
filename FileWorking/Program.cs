@@ -17,7 +17,7 @@ namespace FileWorking
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    temp.Add(line);
+                    temp.Add(line);//записываем построчно в темп
                 }
             }
             
@@ -25,6 +25,7 @@ namespace FileWorking
             {
                 Console.WriteLine(str);
             }
+            
         }
     }
 }
