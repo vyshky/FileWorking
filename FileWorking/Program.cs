@@ -33,12 +33,12 @@ namespace FileWorking
                 line = file.ReadLine();
             }
 
-
             //Console.WriteLine(line[0]);// выводит по одному символу
             string[] temp = line.Split(";"); // расщепляем слова разделительным символом ";" 
             person.Name = temp[0];
             person.DateOfBithday = Convert.ToDateTime(temp[1]);
-            Console.WriteLine($"{user.Name};{user.DateOfBithday.ToString("d")}");
+            Console.WriteLine($"Name - {user.Name}\t,Date of birth - {user.DateOfBithday:d}"); // найди отличие с нижней строчкой,а работает также
+            Console.WriteLine($"Name - {user.Name}\t,Date of birth - {user.DateOfBithday.ToString("d")}");
         }
     }
 }
