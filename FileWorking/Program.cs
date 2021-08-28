@@ -4,28 +4,26 @@ using System.IO;
 
 namespace FileWorking
 {
+    public class User
+    {
+        public string Name { get; set; }
+        public DateTime DateOfBithday { get; set; }
+    }
+
     class Program
     {
         static void Main()
         {
-            var path_input = @"C:\Users\vyshk\RiderProjects\FileWorking\FileWorking\input.txt";
-            List<string> temp = new List<string>();//массив строк
-            using (StreamReader file = new StreamReader(path_input))
-            {
-                // temp = file.ReadToEnd(); // в темп хранится все содержимое файла
+            string path = @"C:\Users\vyshk\RiderProjects\FileWorking\FileWorking\user.csv";
+            User user = new User();
+            user.Name = "Alexandr";
+            user.DateOfBithday = new DateTime(1994, 03, 27);
 
-                string line;
-                while ((line = file.ReadLine()) != null)
-                {
-                    temp.Add(line);//записываем построчно в темп
-                }
-            }
-            
-            foreach (var str in temp)
+            string output = $"{user.Name};{user.DateOfBithday.ToString("d")}";
+            using (StreamWriter file = new StreamWriter(path, false))
             {
-                Console.WriteLine(str);
+                file.WriteLine(output);
             }
-            
         }
     }
 }
