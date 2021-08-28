@@ -8,12 +8,12 @@ namespace FileWorking
         static void Main()
         {
             var path_input = @"C:\Users\vyshk\RiderProjects\FileWorking\FileWorking\input.txt";
-            StreamReader file = new StreamReader(path_input);
-            var temp = file.ReadToEnd(); // в темп хранится все содержимое файла
-            file.Close();
-            
+            string temp;
+            using( StreamReader file = new StreamReader(path_input))
+            {
+                temp = file.ReadToEnd(); // в темп хранится все содержимое файла
+            }
             Console.WriteLine(temp);
-            
         }
     }
 }
