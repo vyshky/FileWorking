@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace FileWorking
@@ -8,12 +9,22 @@ namespace FileWorking
         static void Main()
         {
             var path_input = @"C:\Users\vyshk\RiderProjects\FileWorking\FileWorking\input.txt";
-            string temp;
-            using( StreamReader file = new StreamReader(path_input))
+            List<string> temp = new List<string>();//массив строк
+            using (StreamReader file = new StreamReader(path_input))
             {
-                temp = file.ReadToEnd(); // в темп хранится все содержимое файла
+                // temp = file.ReadToEnd(); // в темп хранится все содержимое файла
+
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    temp.Add(line);
+                }
             }
-            Console.WriteLine(temp);
+            
+            foreach (var str in temp)
+            {
+                Console.WriteLine(str);
+            }
         }
     }
 }
